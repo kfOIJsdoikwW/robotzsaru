@@ -1,0 +1,212 @@
+:root {
+    --police-blue: #00d4ff;
+    --dark-blue: #0a192f;
+    --error-red: #ff3b3b;
+    --bg-dark: #050a14;
+    --success-green: #00ff88;
+}
+
+/* GLOBÁLIS JAVÍTÁS */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    background-color: var(--bg-dark); 
+    color: var(--police-blue); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.dashboard { 
+    border: 1px solid var(--police-blue); 
+    background: rgba(0, 212, 255, 0.05);
+    padding: 40px; 
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.1); 
+    width: 100%; 
+    max-width: 800px; 
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+h2 { text-transform: uppercase; letter-spacing: 3px; border-bottom: 1px solid var(--police-blue); padding-bottom: 15px; margin-bottom: 10px; }
+
+input { 
+    background: var(--dark-blue); 
+    border: 1px solid var(--police-blue); 
+    color: #ffffff; 
+    padding: 15px; 
+    width: 80%; 
+    max-width: 100%; 
+    text-align: center; 
+    font-size: 1.1rem;
+    margin-bottom: 30px; 
+    outline: none;
+    display: inline-block;
+}
+
+button.main-btn { 
+    background: var(--police-blue); 
+    color: var(--bg-dark); 
+    border: none; 
+    padding: 15px 40px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    width: 60%;
+    transition: 0.3s;
+}
+
+button.main-btn:hover { background: #fff; box-shadow: 0 0 15px #fff; }
+
+.hidden { display: none !important; }
+
+/* Rács és kártyák */
+.evidence-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    text-align: left; 
+    margin-top: 30px;
+}
+
+.evidence-card { 
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-left: 4px solid var(--police-blue);
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--police-blue);
+    float: right;
+    object-fit: cover;
+    background: #111;
+}
+
+.personal-info-details {
+    display: none;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #ccc;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    padding-top: 10px;
+}
+
+.download-link { 
+    color: var(--police-blue); 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    font-weight: bold;
+    border: 1px solid var(--police-blue);
+    padding: 5px 10px;
+    display: inline-block;
+    margin-top: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.download-link:hover { background: var(--police-blue); color: var(--bg-dark); }
+
+/* Galéria */
+.digital-evidence { grid-column: span 2; border: 1px dashed var(--police-blue); text-align: center; }
+.image-gallery { display: flex; justify-content: space-around; margin-top: 15px; gap: 10px; }
+.evidence-img { width: 30%; height: 100px; background: #111; border: 1px solid var(--police-blue); object-fit: cover; cursor: pointer; }
+
+.locked-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: var(--police-blue);
+    padding: 5px;
+    text-align: center;
+    border: 1px dashed var(--police-blue);
+    cursor: pointer;
+}
+
+/* Chatbox és Jelszókerő */
+.chat-container {
+    margin-top: 20px;
+    border: 1px solid var(--police-blue);
+    background: rgba(0, 212, 255, 0.05);
+    text-align: left;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 3px;
+    animation: fadeIn 0.3s;
+}
+
+.auth-box {
+    border-color: var(--police-blue);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.auth-input {
+    width: 100% !important;
+    margin-top: 15px;
+    margin-bottom: 10px !important;
+    background: #000 !important;
+    padding: 10px !important;
+}
+
+.chat-header {
+    font-size: 0.6rem;
+    color: var(--police-blue);
+    border-bottom: 1px solid var(--police-blue);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.chat-body {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.exit-btn {
+    background: none;
+    border: 1px solid gray;
+    color: gray;
+    margin-top: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Animációk */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
+.loader-bar { width: 300px; max-width: 100%; height: 4px; background: #111; margin-top: 20px; overflow: hidden; display: inline-block;}
+.loader-progress { width: 0%; height: 100%; background: var(--police-blue); animation: load 2.5s ease-in-out forwards; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+.error-shake { animation: shake 0.2s ease-in-out 0s 2; border-color: var(--error-red) !important; }
+
+/* --- MOBIL SPECIFIKUS JAVÍTÁSOK --- */
+@media (max-width: 600px) {
+    .dashboard { padding: 30px 15px; }
+    h2 { font-size: 1.2rem; letter-spacing: 1px; }
+    input { width: 95%; font-size: 1rem; padding: 12px; }
+    button.main-btn { width: 95%; padding: 12px; }
+    .evidence-grid { grid-template-columns: 1fr; }
+    .digital-evidence { grid-column: span 1; }
+    .image-gallery { flex-direction: row; justify-content: center; gap: 5px; }
+    .evidence-img { height: 70px; }
+}
