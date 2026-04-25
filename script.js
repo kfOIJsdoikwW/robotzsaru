@@ -13,12 +13,13 @@ function processLogin() {
         input.style.borderColor = "var(--success-green)";
         
         setTimeout(() => {
+            // Belépés elrejtése, töltés megjelenítése
             document.getElementById('login-section').classList.add('hidden');
             document.getElementById('loading-screen').classList.remove('hidden');
-            document.getElementById('loading-screen').style.display = 'flex';
             
             setTimeout(() => {
-                document.getElementById('loading-screen').style.display = 'none';
+                // Töltés elrejtése (A css .hidden osztályával!), adatok megjelenítése
+                document.getElementById('loading-screen').classList.add('hidden');
                 document.getElementById('evidence-section').classList.remove('hidden');
             }, 2600);
         }, 800);
@@ -29,7 +30,6 @@ function processLogin() {
         setTimeout(() => container.classList.remove('error-shake'), 500);
     }
 }
-
 function toggleDetails() {
     const details = document.getElementById('personal-data');
     details.style.display = (details.style.display === 'block') ? 'none' : 'block';
