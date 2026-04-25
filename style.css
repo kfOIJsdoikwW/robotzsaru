@@ -182,6 +182,23 @@ button.main-btn:hover { background: #fff; box-shadow: 0 0 15px #fff; }
     width: 100%;
 }
 
+/* --- TÖLTŐKÉPERNYŐ JAVÍTÁSA --- */
+#loading-screen {
+    display: flex;       /* Kényszerítjük a flex elrendezést */
+    flex-direction: column;         /* EGYMÁS ALÁ rendezi az elemeket */
+    align-items: center;            /* Középre igazítja őket vízszintesen */
+    justify-content: center;        /* Középre igazítja őket függőlegesen */
+    text-align: center;
+    width: 100%;
+    min-height: 200px;              /* Adunk neki egy kis teret */
+    gap: 15px;                      /* Távolság a címsor, a szöveg és a csík között */
+}
+
+/* Ez biztosítja, hogy rejtve maradjon, amíg a JS meg nem hívja */
+#loading-screen.hidden {
+    display: none !important;
+}
+
 /* Animációk */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
